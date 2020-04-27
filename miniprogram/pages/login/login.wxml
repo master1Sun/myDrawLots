@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="tui-bg-box">
+    <open-data type='userAvatarUrl' class="userinfo" mode="cover"></open-data>
+    <view class='user-info-mobile' bindtap="toUserLog">
+      <open-data type="userNickName"></open-data>
+    </view>
+  </view>
+
+  <view class="tui-login-from">
+    <button form-type="submit" class="tui-btn-submit">
+      <button class='authorize-button' type='primary' open-type='getUserInfo' bindgetuserinfo='onGetUserInfo'>微信授权登录</button>
+    </button>
+    <view class="tui-protocol" hover-class="opcity" hover-stay-time="150">点击"微信授权登录"即表示已同意
+      <text class="tui-protocol-red" bindtap="protocol">《用户协议》</text>
+    </view>
+  </view>
+</view>
+<ad unit-id="adunit-2235428cbeb44b75" ad-intervals='40'></ad>

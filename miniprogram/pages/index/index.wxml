@@ -1,0 +1,65 @@
+<view class='flex-container'>
+  <view class='user-info'>
+    <view class='avatar-container' bindtap='onAvatarTap'>
+      <open-data type='userAvatarUrl' />
+    </view>
+    <open-data type='userNickName' class='username' />
+  </view>
+  <swiper class='journalBooks' indicator-dots='true' previous-margin='75rpx' next-margin='75rpx'>
+    <template is="create" data="{{titleName,joinNrmber,selectNumber}}" wx:if="{{isLots}}"></template>
+    <template is="info"></template>
+    <template is="more" data="{{notice}}"></template>
+  </swiper>
+</view>
+
+<template name='more'>
+  <swiper-item class='journalBook'>
+    <myIndex title="通知">
+      <image class='add-journalBook-icon' src='/images/empty.png' />
+      <view class='add-journalBook-text margin-top'>
+        <text>{{notice}}</text>
+      </view>
+    </myIndex>
+  </swiper-item>
+</template>
+
+<template name='info'>
+  <swiper-item class='journalBook'>
+    <myIndex title="抽签规则">
+      <view class='add-journalBook-text'>
+        <text> 玩法介绍：\n抽签会在1~最大数字之间随机抓取一个数。\n如果最大数字是10，\n那么在这个规则中，总共有10次抓阄机会，每次从【1-10】之间随机抓取一个数字。\n设定一个或者多个抽中号码，抽中者会有提示~~\n亲~记得右上角收藏哦</text>
+      </view>
+    </myIndex>
+  </swiper-item>
+</template>
+
+<template name='create'>
+  <swiper-item class='journalBook'>
+    <myIndex title="抽 签">
+      <view class="cu-form-group" style="height: 150rpx;">
+        <view class="title">主题</view>
+        <input placeholder="今天谁下楼拿外卖" value="{{titleName}}" data-type="title" bindblur="inputValue" bindinput="inputValue" style="height: 120rpx;line-height: 120rpx;"></input>
+      </view>
+      <view class="cu-form-group" style="height: 80rpx;">
+        <view class="title">参与人数</view>
+        <view class="tui-numberbox">
+          <view bindtap="reduce" data-type="join" class="tui-numbox-icon tui-icon-reduce">-</view>
+          <input bindblur="inputValue" data-type="join" class="tui-num-input" bindinput="inputValue" type="number" value="{{joinNrmber}}"></input>
+          <view bindtap="plus" data-type="join" class="tui-numbox-icon tui-icon-plus">+</view>
+        </view>
+      </view>
+      <view class="cu-form-group" style="height: 80rpx;">
+        <view class="title">选中人数</view>
+        <view class="tui-numberbox">
+          <view bindtap="reduce" data-type="select" class="tui-numbox-icon tui-icon-reduce">-</view>
+          <input bindblur="inputValue" data-type="select" bindinput="inputValue" class="tui-num-input" type="number" value="{{selectNumber}}"></input>
+          <view bindtap="plus" data-type="select" class="tui-numbox-icon tui-icon-plus">+</view>
+        </view>
+      </view>
+      <view class="margin-tb-sm text-center">
+        <slot></slot>
+        <button class="cu-btn icon lg round bg-olive" bindtap="create">创建</button>
+      </view>
+    </myIndex>
+  </swiper-item>
+</template>

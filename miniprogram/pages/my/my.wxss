@@ -1,0 +1,19 @@
+.flex-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2099974762,1723244606&fm=26&gp=0.jpg');
+  background-size: 100% 100%;
+}
+
+.journalBooks {
+  height: 840rpx;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.journalBook {
+  height: 100vh;
+  width: 50vh;
+}

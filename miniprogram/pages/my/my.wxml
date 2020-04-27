@@ -1,0 +1,14 @@
+<view class='flex-container'>
+  <ad unit-id="adunit-dcc73a2a9b79586c" ad-intervals="40"></ad>
+  <swiper class='journalBooks' indicator-dots='true' autoplay="true" interval="8000" previous-margin='75rpx' next-margin='75rpx'>
+    <swiper-item class='journalBook'>
+      <myInfo title="我发起的" desc="抓阄" data="{{createDataLot}}" bind:click="gotoInfo"></myInfo>
+    </swiper-item>
+    <swiper-item class='journalBook'>
+      <myInfo title="我参与的" desc="抓阄" data="{{joinDatalot}}" bind:click="gotoInfo"></myInfo>
+    </swiper-item>
+  </swiper>
+  <view>
+    <text class="text-cut" style="font-size: 10px;color: #999;">{{address}}</text>
+  </view>
+</view>
