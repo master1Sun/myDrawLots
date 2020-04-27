@@ -1,0 +1,8 @@
+{
+  "backgroundColorTop": "#5677FC",
+  "backgroundColorBottom": "#ffffff",
+  "backgroundColor": "#eeeeee",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "登 录",
+  "usingComponents": {}
+}

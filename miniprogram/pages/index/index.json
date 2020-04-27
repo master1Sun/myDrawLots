@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "抽签小能手",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true,
+  "usingComponents": {
+      "myIndex": "../../components/myIndex/myIndex"
+  }
+}
