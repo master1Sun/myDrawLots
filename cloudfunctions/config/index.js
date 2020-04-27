@@ -1,7 +1,7 @@
 // 云函数入口函数
 exports.main = async(event, context) => {
   let l = my[Math.round(Math.random() * my.length)]
-  let notice = l + '\n\n\n\n小程序作者：sun'
+  let notice = '每日名人名言：\n' + l + '\n\n\n\n小程序作者：sun'
   let isLots = true;
   return {
     notice,
