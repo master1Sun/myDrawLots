@@ -1,2 +1,0 @@
-# myDrawLots
- 抓阄
