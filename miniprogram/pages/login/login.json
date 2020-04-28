@@ -4,5 +4,6 @@
   "backgroundColor": "#eeeeee",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "登 录",
+  "disableScroll": true,
   "usingComponents": {}
 }
