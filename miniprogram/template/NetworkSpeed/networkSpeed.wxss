@@ -1,0 +1,95 @@
+.table {
+  border: 1px solid #bbb;
+  width: 98%;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.th, .td {
+  padding: 6px;
+  border-right: 1px solid #bbb;
+  text-align: center;
+  width: 100%;
+}
+
+.th {
+  font-weight: 800;
+  background-color: rgb(238, 238, 238, 0.5);
+  font-size: 8px;
+}
+
+.td {
+  color: green;
+  font-size: 10px;
+}
+
+.flex-item {
+  width: 100%;
+}
+
+.flex-wrp {
+  display: flex;
+}
+
+.weui-loadmore {
+  width: 65%;
+  margin: 1.5em auto;
+  line-height: 1.6em;
+  font-size: 14px;
+  text-align: center;
+}
+
+.weui-loadmore__tips {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.weui-loadmore_line {
+  border-top: 1px solid rgba(184, 184, 184, 0.1);
+  margin-top: 2.4em;
+}
+
+.weui-loadmore__tips_in-line {
+  position: relative;
+  top: -.9em;
+  padding: 0 0.55em;
+  background-color: #fff;
+  color: rgba(105, 105, 105, 0.8);
+}
+
+.weui-loadmore__tips_in-dot {
+  position: relative;
+  padding: 0 0.16em;
+  width: 4px;
+  height: 1.6em;
+}
+
+.weui-loadmore__tips_in-dot:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #bbb;
+}
+
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd {
+  padding-bottom: 40px;
+}
+
+.page__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}

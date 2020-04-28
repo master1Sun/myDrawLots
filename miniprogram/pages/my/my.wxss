@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2099974762,1723244606&fm=26&gp=0.jpg');
+  background: url('https://6d79-mybase-1258530088.tcb.qcloud.la/bg/bg1.jpeg?sign=257b4e2462d17d0826bf23b438ab4a1f&t=1587862947');
   background-size: 100% 100%;
 }
 

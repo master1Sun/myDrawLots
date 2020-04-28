@@ -1,12 +1,15 @@
 const api = require('../../utils/apiCloud.js');
+const networkSpeed = require('/networkSpeed.js');
 // 在页面中定义插屏广告
 let interstitialAd = null
+let netList = []
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    show: true,
     isLots: false,
     titleName: '',
     joinNrmber: 3,
@@ -15,6 +18,14 @@ Page({
     min: 0,
     max: 999,
     lotid: '',
+    textInfo1: '玩法介绍：\n抽签会在1~最大数字之间随机抓取一个数。\n如果最大数字是10，\n那么在这个规则中，总共有10次抓阄机会，每次从【1-10】之间随机抓取一个数字。\n设定一个或者多个抽中号码，抽中者会有提示~~\n亲~记得右上角收藏哦',
+    textInfo2: '测试规则：\n点击网络测速，\n测试工具会获取当前网络速度，\n等待测试结束，\n就可以查询当前网络速度~~\n亲~记得右上角收藏哦',
+    loading: false,
+    disabled: false,
+    networkContent: '0KB/s',
+    startProgress: '0ms',
+    broadband: 0,
+    networkList: []
   },
   inputValue(e) {
     let v = e.currentTarget.dataset.type;
@@ -129,7 +140,7 @@ Page({
       if (that.data.titleName == '') {
         wx.showModal({
           title: '警告!',
-          content: '抓阄标题必需填写',
+          content: '主题名称必需填写',
           confirmColor: "#5677FC",
           showCancel: false
         })
@@ -201,7 +212,9 @@ Page({
     if (getDate.todayDate == todayDate) {
       that.setData({
         isLots: getDate.data.isLots,
-        notice: getDate.data.notice
+        notice: getDate.data.notice,
+        textInfo1: getDate.data.textInfo1 || that.data.textInfo1,
+        textInfo2: getDate.data.textInfo2 || that.data.textInfo2
       })
     } else {
       wx.cloud.callFunction({
@@ -216,7 +229,9 @@ Page({
           })
           that.setData({
             isLots: res.result.isLots,
-            notice: res.result.notice
+            notice: res.result.notice,
+            textInfo1: res.result.textInfo1 || that.data.textInfo1,
+            textInfo2: res.result.textInfo2 || that.data.textInfo2
           })
           that.loadingADD()
         }
@@ -243,16 +258,65 @@ Page({
 
   },
   /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
 
-  }
+  },
+  startSearch() {
+    wx.vibrateShort() //短暂震动
+    var that = this;
+    netList = [];
+    that.networkCallback({
+      speed: 0,
+      networkMillisecond: 0,
+      networkContent: '0KM/s',
+      networkList: [],
+      startProgress: '0ms'
+    })
+
+    // 开始网络监测
+    networkSpeed.startNetwork({
+      self: that
+    });
+    // 网络监测回调
+    networkSpeed.networkCallback = that.networkCallback;
+
+    that.setData({
+      loading: true,
+      disabled: true
+    })
+  }, // 网络监测回调
+  networkCallback: function(options) {
+    var _this = this;
+    netList.push({
+      networkMillisecond: options.networkMillisecond,
+      networkContent: "下载带宽" + options.networkContent,
+      startProgress: ">>耗时" + options.startProgress
+    })
+
+    _this.setData({
+      networkList: netList.reverse()
+    })
+    if (options.status == 1) {
+      netList.push({
+        speed: options.speed,
+        networkMillisecond: options.networkMillisecond,
+        networkContent: '结束测试',
+        startProgress: ''
+      })
+      var kdsl = Math.round(options.networkContent_count * 8)
+      if (kdsl <= 1) {
+        kdsl = 1
+      }
+      _this.setData({
+        startProgress: options.startProgress,
+        networkList: netList.reverse(),
+        networkContent: options.networkContent,
+        broadband: kdsl,
+        loading: false,
+        disabled: false
+      })
+    }
+  },
 })

@@ -1,0 +1,25 @@
+<template name='create'>
+  <view class="cu-form-group" style="height: 150rpx;">
+    <view class="title">主题</view>
+    <input placeholder="例：今天谁下楼拿外卖" value="{{titleName}}" data-type="title" bindblur="inputValue" bindinput="inputValue" style="height: 120rpx;line-height: 120rpx;"></input>
+  </view>
+  <view class="cu-form-group" style="height: 80rpx;">
+    <view class="title">参与人数</view>
+    <view class="tui-numberbox">
+      <view bindtap="reduce" data-type="join" class="tui-numbox-icon tui-icon-reduce">-</view>
+      <input bindblur="inputValue" data-type="join" class="tui-num-input" bindinput="inputValue" type="number" value="{{joinNrmber}}"></input>
+      <view bindtap="plus" data-type="join" class="tui-numbox-icon tui-icon-plus">+</view>
+    </view>
+  </view>
+  <view class="cu-form-group" style="height: 80rpx;">
+    <view class="title">选中人数</view>
+    <view class="tui-numberbox">
+      <view bindtap="reduce" data-type="select" class="tui-numbox-icon tui-icon-reduce">-</view>
+      <input bindblur="inputValue" data-type="select" bindinput="inputValue" class="tui-num-input" type="number" value="{{selectNumber}}"></input>
+      <view bindtap="plus" data-type="select" class="tui-numbox-icon tui-icon-plus">+</view>
+    </view>
+  </view>
+  <view class="margin-tb-sm text-center">
+    <button class="cu-btn icon lg round bg-olive" bindtap="create">创建</button>
+  </view>
+</template>

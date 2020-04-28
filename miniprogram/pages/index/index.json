@@ -4,6 +4,6 @@
   "navigationBarTextStyle": "black",
   "disableScroll": true,
   "usingComponents": {
-      "myIndex": "../../components/myIndex/myIndex"
+    "homePage": "../../components/homePage/homePage"
   }
 }

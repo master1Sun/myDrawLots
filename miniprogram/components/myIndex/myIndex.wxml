@@ -1,8 +1,0 @@
-<view class='flipper'>
-  <view class='front'>
-    <view class='input-title'>{{title}}</view>
-    <scroll-view class="width" scroll-y='true'>
-      <slot></slot>
-    </scroll-view>
-  </view>
-</view>

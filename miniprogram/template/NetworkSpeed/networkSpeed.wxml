@@ -1,0 +1,25 @@
+<template name="netSpeed">
+  <view class="table">
+    <view class="tr">
+      <view class="th">平均耗时</view>
+      <view class="th">平均下载速率</view>
+      <view class="th" style="border-right: 0px;">网络带宽</view>
+    </view>
+    <view class="tr">
+      <view class="td">{{startProgress}}</view>
+      <view class="td">{{networkContent}}</view>
+      <view class="td" style="border-right: 0px;">约
+        <span style="color:red">{{broadband}}</span> 兆</view>
+    </view>
+  </view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item">
+      <view class="weui-loadmore weui-loadmore_line">
+        <view style="font-size:12px;" class="weui-loadmore__tips weui-loadmore__tips_in-line">{{networkList[0].networkContent}}{{networkList[0].startProgress}}</view>
+      </view>
+      <view class="margin-tb-sm text-center">
+        <button class="cu-btn round bg-olive" style="width: 100px;" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="startSearch">网络测速</button>
+      </view>
+    </view>
+  </view>
+</template>

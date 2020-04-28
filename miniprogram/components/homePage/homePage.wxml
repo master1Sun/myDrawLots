@@ -1,0 +1,22 @@
+<view class='flipper' style="{{style}}">
+  <view class='front' wx:if="{{show}}">
+    <view class='input-title'>{{title1}}</view>
+    <scroll-view class="width" scroll-y='true'>
+      <slot></slot>
+    </scroll-view>
+    <view class='submit-button-container' bindtap='onSubmitButtonTap'>
+      <image class='submit-button' src='/images/text.png' />
+    </view>
+  </view>
+  <view class='back' wx:else>
+    <view class='input-title'>{{title2}}</view>
+    <scroll-view class="width" scroll-y='true'>
+      <view class='add-journalBook-text'>
+        <text>{{text}}</text>
+      </view>
+    </scroll-view>
+    <view class='return-button-container' bindtap='onReturnButtonTap'>
+      <image class='return-button' src='/images/return.png' />
+    </view>
+  </view>
+</view>
